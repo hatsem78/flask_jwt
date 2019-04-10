@@ -6,10 +6,6 @@ certifi==2018.10.15
 cffi==1.12.2
 chardet==3.0.4
 Click==7.0
-Django==2.1.2
-django-crispy-forms==1.7.2
-djangorestframework==3.9.0
-djangorestframework-jsonapi==2.6.0
 drf-json-api==0.1.1
 Flask==1.0.2
 Flask-Bcrypt==0.7.1
