@@ -2,7 +2,7 @@
 
 # Proyecto crear un Api-Rest con tecnología Python3, Flask-framework con Json Web Token
 
-Es un simple API-REST de seguridad con token para resguardar los recursos que se exponen para ser consumidos por distintas aplicaciones
+Es un simple API-REST-JWT de seguridad con token para resguardar los recursos que se exponen para ser consumidos por distintas aplicaciones
 
 Versión.
 
