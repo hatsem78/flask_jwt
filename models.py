@@ -1,6 +1,11 @@
 from run import db
 from passlib.hash import pbkdf2_sha256 as sha256
 
+from random import SystemRandom
+
+from backports.pbkdf2 import pbkdf2_hmac, compare_digest
+from sqlalchemy.ext.hybrid import hybrid_property
+
 class UserModel(db.Model):
 
     __tablename__ = 'user'
@@ -42,7 +47,23 @@ class UserModel(db.Model):
 
     @staticmethod
     def verify_hash(password, hash):
+        #corregir
+        print(password, hash)
         return sha256.verify(password, hash)
+
+
+
+
+    def _hash_password(self, password):
+        pwd = password.encode("utf-8")
+        salt = bytes(self._salt)
+        buff = pbkdf2_hmac("sha512", pwd, salt, iterations=100000)
+        return bytes(buff)
+
+    def __repr__(self):
+        return "<User #{:d}>".format(self.id)
+
+
 
 
 class RevokedTokenModel(db.Model):
